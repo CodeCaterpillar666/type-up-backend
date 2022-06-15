@@ -4,12 +4,6 @@ const FacebookStrategy = require("passport-facebook").Strategy;
 const passport = require("passport");
 const keys = require('../config/keys');
 
-GITHUB_CLIENT_ID = keys.GITHUB_CLIENT_ID || process.env.GITHUB_CLIENT_ID;
-GITHUB_CLIENT_SECRET = keys.GITHUB_CLIENT_SECRET || process.env.GITHUB_CLIENT_SECRET;
-
-FACEBOOK_APP_ID = "your id";
-FACEBOOK_APP_SECRET = "your id";
-
 passport.use(
   new GoogleStrategy(
     {
@@ -26,8 +20,8 @@ passport.use(
 passport.use(
   new GithubStrategy(
     {
-      clientID: GITHUB_CLIENT_ID,
-      clientSecret: GITHUB_CLIENT_SECRET,
+      clientID: keys.GITHUB_CLIENT_ID,
+      clientSecret: keys.GITHUB_CLIENT_SECRET,
       callbackURL: "/auth/github/callback",
     },
     function (accessToken, refreshToken, profile, done) {
