@@ -12,7 +12,7 @@ router.get("/login/success", (req, res) => {
       //   cookies: req.cookies
     });
   }
-}); 
+});
 
 router.get("/login/failed", (req, res) => {
   res.status(401).json({
