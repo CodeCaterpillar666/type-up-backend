@@ -4,8 +4,8 @@ const FacebookStrategy = require("passport-facebook").Strategy;
 const passport = require("passport");
 const keys = require('../config/keys');
 
-GITHUB_CLIENT_ID = keys.GITHUB_CLIENT_ID;
-GITHUB_CLIENT_SECRET = keys.GITHUB_CLIENT_SECRET;
+GITHUB_CLIENT_ID = keys.GITHUB_CLIENT_ID || process.env.GITHUB_CLIENT_ID;
+GITHUB_CLIENT_SECRET = keys.GITHUB_CLIENT_SECRET || process.env.GITHUB_CLIENT_SECRET;
 
 FACEBOOK_APP_ID = "your id";
 FACEBOOK_APP_SECRET = "your id";
@@ -36,18 +36,18 @@ passport.use(
   )
 );
 
-passport.use(
-  new FacebookStrategy(
-    {
-      clientID: FACEBOOK_APP_ID,
-      clientSecret: FACEBOOK_APP_SECRET,
-      callbackURL: "/auth/facebook/callback",
-    },
-    function (accessToken, refreshToken, profile, done) {
-      done(null, profile);
-    }
-  )
-);
+// passport.use(
+//   new FacebookStrategy(
+//     {
+//       clientID: FACEBOOK_APP_ID,
+//       clientSecret: FACEBOOK_APP_SECRET,
+//       callbackURL: "/auth/facebook/callback",
+//     },
+//     function (accessToken, refreshToken, profile, done) {
+//       done(null, profile);
+//     }
+//   )
+// );
 
 passport.serializeUser((user, done) => {
   done(null, user);
