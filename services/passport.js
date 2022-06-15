@@ -3,10 +3,10 @@ const GithubStrategy = require("passport-github2").Strategy;
 const FacebookStrategy = require("passport-facebook").Strategy;
 const passport = require("passport");
 const keys = require('../config/keys');
-console.log(keys.GITHUB_CLIENT_ID)
-console.log(keys.GITHUB_CLIENT_SECRET)
-console.log(keys.GOOGLE_CLIENT_ID)
-console.log(keys.GOOGLE_CLIENT_SECRET)
+console.log(keys.githubClientId)
+console.log(keys.githubClientSecret)
+console.log(keys.googleClientID)
+console.log(keys.googleClientSecret)
 
 passport.use(
   new GoogleStrategy(
