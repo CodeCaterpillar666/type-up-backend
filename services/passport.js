@@ -1,4 +1,6 @@
 require('dotenv').config()
+const mongoose = require('mongoose');
+const User = mongoose.model('user');
 
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const GithubStrategy = require("passport-github2").Strategy;
