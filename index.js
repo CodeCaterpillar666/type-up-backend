@@ -22,8 +22,6 @@ app.use(
     name: "session", 
     keys: ["sss"], 
     maxAge: 24 * 60 * 60 * 100,
-    secure: true,
-    sameSite: false,
   })
 );
 
