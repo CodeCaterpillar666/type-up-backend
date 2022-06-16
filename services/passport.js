@@ -7,8 +7,8 @@ console.log(keys)
 passport.use(
   new GoogleStrategy(
     {
-      clientID: keys.googleClientID,
-      clientSecret: keys.googleClientSecret,
+      clientID: `${keys.googleClientID}`,
+      clientSecret: `${keys.googleClientSecret}`,
       callbackURL: "/auth/google/callback",
     },
     function (accessToken, refreshToken, profile, done) {
@@ -20,8 +20,8 @@ passport.use(
 passport.use(
   new GithubStrategy(
     {
-      clientID: keys.githubClientId,
-      clientSecret: keys.githubClientSecret,
+      clientID: `${keys.githubClientId}`,
+      clientSecret: `${keys.githubClientSecret}`,
       callbackURL: "/auth/github/callback",
     },
     function (accessToken, refreshToken, profile, done) {
