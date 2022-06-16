@@ -15,6 +15,8 @@ mongoose.connect(`${process.env.START_MONGODB}${process.env.MONGODB_USERNAME}:${
   console.log("Connected to mongoose successfully")
 });
 
+app.set('trust proxy', 1);
+
 app.use(
   cookieSession({ 
     name: "session", 
