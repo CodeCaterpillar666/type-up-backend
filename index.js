@@ -16,7 +16,12 @@ mongoose.connect(`${process.env.START_MONGODB}${process.env.MONGODB_USERNAME}:${
 });
 
 app.use(
-  cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
+  cookieSession({ 
+    name: "session", 
+    keys: ["sss"], 
+    maxAge: 24 * 60 * 60 * 100,
+    secure: true
+  })
 );
 
 app.use(passport.initialize());
