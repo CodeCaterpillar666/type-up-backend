@@ -1,0 +1,6 @@
+module.exports = {
+  GOOGLE_CLIENT_ID: "656793716788-01g11av7hm8isjm0nl0cjm1b2g4omm3b.apps.googleusercontent.com",
+  GOOGLE_CLIENT_SECRET: "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",
+  GITHUB_CLIENT_ID: "847e37169aa554e40ea1",
+  GITHUB_CLIENT_SECRET: "4e27f22045455a96c729f87ed8ac407aad97ea7c"
+}

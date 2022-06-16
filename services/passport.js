@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const GithubStrategy = require("passport-github2").Strategy;
 const passport = require("passport");
@@ -7,8 +9,8 @@ console.log(keys)
 passport.use(
   new GoogleStrategy(
     {
-      clientID: `${keys.googleClientID}`,
-      clientSecret: `${keys.googleClientSecret}`,
+      clientID: `${process.env.GOOGLE_CLIENT_ID}`,
+      clientSecret: `${process.env.GOOGLE_CLIENT_SECRET}`,
       callbackURL: "/auth/google/callback",
     },
     function (accessToken, refreshToken, profile, done) {
@@ -20,8 +22,8 @@ passport.use(
 passport.use(
   new GithubStrategy(
     {
-      clientID: `${keys.githubClientId}`,
-      clientSecret: `${keys.githubClientSecret}`,
+      clientID: `${process.env.GITHUB_CLIENT_ID}`,
+      clientSecret: `${process.env.GITHUB_CLIENT_SECRET}`,
       callbackURL: "/auth/github/callback",
     },
     function (accessToken, refreshToken, profile, done) {
