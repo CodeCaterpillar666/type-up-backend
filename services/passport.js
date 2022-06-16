@@ -16,6 +16,26 @@ passport.use(
       callbackURL: "/auth/google/callback",
     },
     function (accessToken, refreshToken, profile, done) {
+      User.findOne({googleId: profile.id})
+      .then((err, user) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        if (!user) {
+          console.log("Create a new user based on goole id");
+          const newUser = new User({
+            googleId: profile.id,
+            username: profile.name.givenName
+          });
+          console.log(newUser);
+          newUser.save()
+          .then(() => done(null, newUser));
+        } else {
+          console.log("User already exists");
+          done(null, user);
+        }
+      })
       done(null, profile);
     }
   )
@@ -29,6 +49,26 @@ passport.use(
       callbackURL: "/auth/github/callback",
     },
     function (accessToken, refreshToken, profile, done) {
+      User.findOne({githubId: profile.id})
+      .then((err, user) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        if (!user) {
+          console.log("Create a new user based on goole id");
+          const newUser = new User({
+            githubId: profile.id,
+            username: profile.username
+          });
+          console.log(newUser);
+          newUser.save()
+          .then(() => done(null, newUser));
+        } else {
+          console.log("User already exists");
+          done(null, user);
+        }
+      })
       done(null, profile);
     }
   )
